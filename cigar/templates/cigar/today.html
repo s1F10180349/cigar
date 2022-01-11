@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>today's cigar</title>
+    </head>
+
+    <body>
+        <h1>今日のたばこみくじ</h1>
+        <h2>今日のたばこは、{{ name }}　{{ RorM }}</h2>
+        {% if name == "ラキスト" %}
+        <img src="http://www.kurokawa1.jp/tabaco3/b03_ta069a.png" alt="ラキスト">
+        {% endif %}
+        {% if name == "マルボロ" %}
+        <img src="http://www.kurokawa1.jp/tabaco3/b01_ta001a.png" alt="マルボロ">
+        {% endif %}
+        {% if name == "ホープ" %}
+        <img src="http://www.kurokawa1.jp/tabaco3/a05_ta067a.png" alt="ホープ">
+        {% endif %}
+        {% if name == "ハイライト" %}
+        <img src="http://www.kurokawa1.jp/tabaco3/a07_ta108a.png" alt="ハイライト">
+        {% endif %}
+        {% if name == "メビウス" %}
+        <img src="http://www.kurokawa1.jp/tabaco3/a01_ta001a.png" alt="メビウス">
+        {% endif %}
+        {% if name == "アメスピ" %}
+        <img src="http://www.kurokawa1.jp/tabaco3/a07_ta094a.png" alt="アメスピ">
+        {% endif %}
+        {% if name == "セブンスター" %}
+        <img src="http://www.kurokawa1.jp/tabaco3/a03_ta041a.png" alt="セブンスター">
+        {% endif %}
+        </ul>
+
+        <p><a href="{% url 'index' %}">Top page</a></p>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>tabaco HTML</title>
+  </head>
+
+  <body>
+    <h1>たばこレビュー</h1>
+    <p>たばこのレビューを投稿してください。</p>
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="titleInput">　銘柄　</label>
+          <input id="titleInput" name="title" type="text" placeholder="銘柄を入力">
+        </div>
+        <div>
+          <label for="textInput">レビュー</label>
+          <textarea id="textInput" name="text" rows="3" placeholder="レビューを入力"></textarea>
+        </div>
+        <div>
+          <button type="submit">投稿</button>
+        </div>
+      </form>
+
+      <br>
+      
+      <p>今日のたばこ占いはこちら <a href="{% url 'index1' %}">push</a></p>
+  
+      <br>
+      
+      {% if article %}
+      {% for article in articles %}
+      <a href="{% url 'detail' article.id %}">{{ article.title }}</a>
+      <small>[{{ article.posted_at }}]</small>
+      <div>
+          {{ article.body | linebreaksbr }}
+      </div>
+    {% endfor %}
+    {% else %}
+    <p>No articles.</p>
+    {% endif %}
+  
+    </body>
+  </html>
