@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.http import Http404
 from django.utils import timezone
 from cigar.models import Article
 import random
@@ -7,6 +8,10 @@ import random
 # Create your views here.
 
 def index(request):
+    if request.method == 'POST':
+        article = Article(title=request.POST['title'], body=request.POST['text'])
+        article.save()
+        return redirect(index)
     context = {
         "articles": Article.objects.all()
     }
@@ -27,10 +32,7 @@ def redirect_t(request):
     return redirect(index)
 
 def detail(request, article_id):
-    context = {
-        'article_id': article_id
-    }
-    return render(request, 'cigar/tabaco.html', context)
+    return render(request, 'cigar/cigar.html', )
 
 def update(request, article_id):
     context = {
