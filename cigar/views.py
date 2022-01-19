@@ -31,9 +31,6 @@ def  index1(request):
 def redirect_t(request):
     return redirect(index)
 
-def detail(request, article_id):
-    return render(request, 'cigar/cigar.html', )
-
 def update(request, article_id):
     context = {
         'article_id': article_id
